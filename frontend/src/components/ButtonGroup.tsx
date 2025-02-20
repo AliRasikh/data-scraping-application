@@ -1,9 +1,9 @@
 import "tailwindcss";
 import { useState } from "react";
-import { ButtonContainer } from "../stylers/Button.Styler.tsx";
-import { StyledButton } from "../stylers/Button.Styler.tsx";
-import { ButtonSubtitle } from "../stylers/Button.Styler.tsx";
-import { Title } from "../stylers/Button.Styler.tsx";
+import { ButtonContainer } from "../stylers/Button.Styler";
+import { StyledButton } from "../stylers/Button.Styler";
+import { ButtonSubtitle } from "../stylers/Button.Styler";
+import { Title } from "../stylers/Button.Styler";
 
 //useState: Data that changes with time, Data that can be diffrent from one point in time to another
 const ButtonGroup = () => {

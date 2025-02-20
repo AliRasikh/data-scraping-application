@@ -20,21 +20,20 @@ export const ButtonSubtitle = styled.line`
 font-size: 15px;
 color: darkgray;
 font-weight: normal;
-line-height: 1.2;
+line-height: 1.0;
 
 `
 export const StyledSubtitle = styled.line<{isActive: boolean}>`
 color: ${({ isActive }) => (isActive ? "darkviolet" : "gray")}
 `;
 
-export const StyledButton = styled.button<{isActive: boolean}>`
+export const StyledButton = styled.div<{isActive: boolean}>`
 padding: 10px 20px;
 font-size: 20px;
 font-weight: bold;
 cursor: 'pointer';
 width: 50vw;
 color: black;
-width: 50vw;
 line-height: 0.15;
 
 background-color: ${({ isActive }) => (isActive ? "beige" : "white")};
