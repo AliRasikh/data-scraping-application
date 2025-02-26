@@ -4,9 +4,10 @@ import "./ScrapePage.css"
 
 //import PDButtons from '../components/PDButtons';
 //import "../stylers/PDButtons.css";
-import sendAxiosRequest, { downloadFile } from '../api/axios';
+import sendAxiosRequest, { downloadFile, previewFile } from '../api/axios';
 //import { downloadAsTxt } from '../const/utils';
 import { RadioOption } from '../const/types';
+//import { downloadAsTxt } from '../const/utils';
 
 
 
@@ -18,7 +19,21 @@ const ScrapePage: React.FC = () => {
   // We define an error state, initialized with a goal string, and a setError function to modify this state
   const [error, setError] = useState('');
 
+   
   const [selectedOption, setSelectedOption] = useState<RadioOption>("requests");
+
+   //getter e valoare
+   // setter e functie
+  const [scrapedPage, setScrapedPage] = useState<string|null>(null);
+  const handlePreview = async () => {
+    try {
+      const previewContent = await previewFile("http://127.0.0.1:5000/download/txt");
+      setScrapedPage(previewContent);
+    } catch (err) {
+      console.error("Error during preview: ", err);
+      setError("Error fetching preview");
+    }
+  };
 
   // Funcția asincronă care se ocupă de procesul de "scrape"
   const handleScrape = async () => {
@@ -34,6 +49,11 @@ const ScrapePage: React.FC = () => {
      const response = await sendAxiosRequest("http://127.0.0.1:5000/scrape", {url:urlInput, 
       scraping_method:selectedOption}) //backend vrea "url" key
      if (response){
+      console.log("here:")
+      console.log(response)
+      //getter e valoare
+      // setter e functie
+      setScrapedPage(response)
       console.log(response)
       downloadFile("http://127.0.0.1:5000/download/txt", "test.txt")
       //  window.location.href = "http://127.0.0.1:5000/download/txt"
@@ -85,7 +105,18 @@ const ScrapePage: React.FC = () => {
       {/* Button that triggers the handleScrape function */}
       <button className="scrapeButton" onClick={handleScrape}>Scrape</button>
 
-      
+       {/* Butonul Preview separat */}
+       <button className="scrapeButton" onClick={handlePreview}>
+        Preview
+      </button>
+
+       {/* cannot write if */}
+      {scrapedPage && 
+      <div>
+        <h3>preview scraped page for <i>{urlInput}</i></h3>
+        <textarea name="" id="" value={scrapedPage}/>
+      </div>
+      }
 
       <footer className='footer'>
       <p>&copy;{new Date().getFullYear()} Hochschule Augsburg & LNU Student Team Project</p>
