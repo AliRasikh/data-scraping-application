@@ -29,18 +29,18 @@ python app.py
 ## Code
 
 
-##     1. routes.py:
+##     1. app.py:
 - scrape():
 
     📌 **Description:**  
-This route **scrapes a static website** using **BeautifulSoup** and returns the extracted HTML.
+This route **scrapes a static website** using **BeautifulSoup** or **Requests** and returns the extracted HTML.
 
 ```
-@app.route("/scrape_with_bs4", methods=["POST"]) 
+@app.route("/scrape", methods=["POST"]) 
 ```
 Defines a route for a specific URL and specifies which HTTP method is allowed
 
-this Function calls the scrapes_with_bs4 function that scrapes static websites and return the data as HTML
+this Function calls the scrapes_with_bs4 or scrapes_with_requests function that scrapes static websites and return the data as HTML
 
 📌**Response:**
 
@@ -65,10 +65,29 @@ It's better to return JSON to the frontend because JSON is lightweight, structur
 
 
 ## 2. in scraper.py 
--`/scrape_with_bs4()` (POST):
+-`/scrape_with_Requests()` (POST):
 
 📌 **Description:** 
 Scrapes a static website and returns extracted text.
+
+### **Request Format**
+Send a **POST request** with a JSON body:
+```json
+{
+    "url": "https://example.com"
+}
+```
+Response Format:
+```
+{
+    "html": "<html>...</html>"
+}
+```
+
+-`/scrape_with_bs4()` (POST):
+
+📌 **Description:** 
+Scrapes a static website and returns extracted pretified text.
 
 ### **Request Format**
 Send a **POST request** with a JSON body:
@@ -90,8 +109,8 @@ Response Format:
 |------|-------------|
 | **1️⃣ Send HTTP Request** | The function **sends a request** to the specified URL using `requests.get()`. |
 | **2️⃣ Check Response Status** | If the response **is not `200 OK`**, an error is returned. |
-| **3️⃣ Parse HTML with BeautifulSoup** | The HTML content is parsed using **BeautifulSoup** to clean the page. |
-| **4️⃣ Return Cleaned HTML** | The cleaned HTML is formatted using `soup.prettify()` and returned. |
+| **3️⃣ Parse only HTML with requests or pretify it with BeautifulSoup ** | The HTML content is parsed using **requests** or using **BeautifulSoup** to clean the page. |
+| **4️⃣ Return HTML/Cleaned HTML** | The (cleaned) HTML is formatted using `soup.prettify()`/'response.text' and returned. |
 
 
 ## 📌 Error Handling
