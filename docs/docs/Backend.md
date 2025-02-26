@@ -60,17 +60,21 @@ It's better to return JSON to the frontend because JSON is lightweight, structur
 
    This route returns the scraped HTML content as a downloadable .txt file.
 
-   it calls the `raw_html_to_txt_file()` to save scraped HTML into a `.txt` file
+   it calls the `get_txt_file()` to save scraped HTML into a `.txt` file
  
+- preview():
 
+📌 ** Description:**
+   This route returns the scraped data content in a jsonify file so the user can see it 
 
-## 2. in scraper.py 
--`/scrape_with_Requests()` (POST):
+-
+## 2. scraper.py 
+- `/scrape_with_Requests()` (POST):
 
 📌 **Description:** 
 Scrapes a static website and returns extracted text.
 
-### **Request Format**
+##    **Request Format**
 Send a **POST request** with a JSON body:
 ```json
 {
@@ -124,3 +128,13 @@ The scraper function **handles errors** and returns structured JSON responses.
 | **Request Timeout** | `500 Server Error` | ```json {"error": "An error occurred: timeout"}``` |
 
 ✅ **If an error occurs, the function returns a structured JSON error message instead of crashing.**
+
+
+##     3. login, signup, logout:
+- routes:
+    sign_up():
+        📌 **Description:**
+        this routes saves the data of the user in the database :**email, login,passwort1 ,passwort2**
+        -it checks if email 
+
+
