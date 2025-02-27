@@ -3,7 +3,7 @@ import RadioButtonsExample from '../components/RadioButtonsExample';
 import "./ScrapePage.css"
 
 //import PDButtons from '../components/PDButtons';
-//import "../stylers/PDButtons.css";
+import "../stylers/PDButtons.css";
 import sendAxiosRequest, { downloadFile, previewFile } from '../api/axios';
 //import { downloadAsTxt } from '../const/utils';
 import { RadioOption } from '../const/types';
@@ -18,22 +18,14 @@ const ScrapePage: React.FC = () => {
   
   // We define an error state, initialized with a goal string, and a setError function to modify this state
   const [error, setError] = useState('');
-
-   
   const [selectedOption, setSelectedOption] = useState<RadioOption>("requests");
+  const [isScrapingDone, setIsScrapingDone] = useState(false);
+
 
    //getter e valoare
    // setter e functie
   const [scrapedPage, setScrapedPage] = useState<string|null>(null);
-  const handlePreview = async () => {
-    try {
-      const previewContent = await previewFile("http://127.0.0.1:5000/download/txt");
-      setScrapedPage(previewContent);
-    } catch (err) {
-      console.error("Error during preview: ", err);
-      setError("Error fetching preview");
-    }
-  };
+  
 
   // Funcția asincronă care se ocupă de procesul de "scrape"
   const handleScrape = async () => {
@@ -53,9 +45,9 @@ const ScrapePage: React.FC = () => {
       console.log(response)
       //getter e valoare
       // setter e functie
-      setScrapedPage(response)
-      console.log(response)
-      downloadFile("http://127.0.0.1:5000/download/txt", "test.txt")
+      //setScrapedPage(response)
+      //downloadFile("http://127.0.0.1:5000/download/txt", "test.txt")
+      setIsScrapingDone(true);
       //  window.location.href = "http://127.0.0.1:5000/download/txt"
       //downloadAsTxt(response, "test25feb.txt")
       setError(''); // Resetăm eroarea înainte de a începe un nou "scrape"
@@ -64,6 +56,15 @@ const ScrapePage: React.FC = () => {
      }
   };
 
+  const handlePreview = async () => {
+    try {
+      const previewContent = await previewFile("http://127.0.0.1:5000/download/txt");
+      setScrapedPage(previewContent);
+    } catch (err) {
+      console.error("Error during preview: ", err);
+      setError("Error fetching preview");
+    }
+  };
   
 
 
@@ -105,10 +106,13 @@ const ScrapePage: React.FC = () => {
       {/* Button that triggers the handleScrape function */}
       <button className="scrapeButton" onClick={handleScrape}>Scrape</button>
 
-       {/* Butonul Preview separat */}
-       <button className="scrapeButton" onClick={handlePreview}>
-        Preview
-      </button>
+        {/* Afișăm butoanele doar după ce scraping-ul este finalizat */}
+      {isScrapingDone && (
+        <div className="buttonContainer">
+          <button onClick={handlePreview}>Preview</button>
+          <button onClick={() => downloadFile("http://127.0.0.1:5000/download/txt", "test.txt")} style={{marginLeft:'75px'}}>Download</button>
+        </div>
+      )}
 
        {/* cannot write if */}
       {scrapedPage && 
