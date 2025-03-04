@@ -19,7 +19,7 @@ from datetime import datetime, timedelta
 from functools import wraps
 from config import app, db
 from flask import request, jsonify
-from core.scraper import scrape_with_bs4, scrape_with_requests
+from core.scraper import scrape_with_bs4, scrape_with_requests, scrape_with_selenium
 from core.file_handler import save_scraped_data, get_txt_file
 from core.repository import store_user_history
 from core.models import User, History
@@ -99,6 +99,8 @@ def scrape():
     elif scraping_method == "bs4":
         # call the scrape website func for the scraped result
         scrape_result = scrape_with_bs4(url)
+    elif scraping_method == "selenium":
+        scrape_result = scrape_with_selenium(url)
     else:
         return jsonify({"error": "Invalid scraping method", "status": 2}), 400
 
