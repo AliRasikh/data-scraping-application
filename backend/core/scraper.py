@@ -7,8 +7,9 @@ and a function to scrape and prettify HTML content from a given URL.
 """
 
 import os
-import requests
 import time
+import re
+import requests
 from flask import jsonify
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -16,6 +17,8 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 def scrape_with_requests(url: str):
@@ -86,6 +89,20 @@ def scrape_with_bs4(url: str):
         return {"status": "failure", "error": f"An error occurred: {e}"}
 
 
+def clean_text(text):
+    """
+    Removes all HTML tags from the given text.
+
+    Args:
+        text (str): The HTML content to be cleaned.
+
+    Returns:
+        str: The cleaned text without HTML tags.
+    """
+    soup = BeautifulSoup(text, "html.parser")
+    return soup.get_text()
+
+
 def scrape_with_selenium(url: str):
     """
     Scrapes dynamic web pages using Selenium.
@@ -106,6 +123,7 @@ def scrape_with_selenium(url: str):
         chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--lang=en")
 
         service = Service(executable_path=chrome_path)
         driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -116,6 +134,12 @@ def scrape_with_selenium(url: str):
         # driver.implicitly_wait(5)
         # time.sleep(5)
 
+        reject_button = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Alle ablehnen')]"))
+        )
+        reject_button.click()
+        time.sleep(5)
+
         search_field_id = 'ybar-sbq'
         element_search_field = driver.find_element(By.ID, search_field_id)
         element_search_field.clear()
@@ -124,6 +148,7 @@ def scrape_with_selenium(url: str):
 
         # Get the page source after JavaScript execution
         page_source = driver.page_source
+        time.sleep(10)
 
         # Close the browser
         driver.quit()

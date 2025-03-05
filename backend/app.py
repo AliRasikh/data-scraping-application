@@ -19,7 +19,7 @@ from datetime import datetime, timedelta
 from functools import wraps
 from config import app, db
 from flask import request, jsonify
-from core.scraper import scrape_with_bs4, scrape_with_requests, scrape_with_selenium
+from core.scraper import scrape_with_bs4, scrape_with_requests, scrape_with_selenium, clean_text
 from core.file_handler import save_scraped_data, get_txt_file
 from core.repository import store_user_history
 from core.models import User, History
@@ -86,6 +86,7 @@ def scrape():
     data = request.json
     url = data.get("url")
     scraping_method = data.get("scraping_method")
+    clean_data = data.get("clean_data", False)
 
     # if no url is provides , return an error with http 400 status(bad request)
     if not url:
@@ -99,6 +100,8 @@ def scrape():
     elif scraping_method == "bs4":
         # call the scrape website func for the scraped result
         scrape_result = scrape_with_bs4(url)
+        if clean_data:
+            scrape_result = clean_text(scrape_result)
     elif scraping_method == "selenium":
         scrape_result = scrape_with_selenium(url)
     else:
@@ -269,8 +272,9 @@ def history():
     history_list = [
         {
             "url": record.url,
-            "scraped_data": record.content,
+            "scraped_data": record.scraped_data,
             "date": record.date.strftime("%Y-%m-%d %H:%M:%S") if record.date else None,
+            "scraped_method": record.scraped_method
         }
         for record in user_history
     ]
