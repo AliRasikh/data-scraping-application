@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../api/globalvariables";
@@ -27,16 +27,36 @@ const Login = () => {
         password: password,
       });
       console.log(response)
-      if (response.data.status === 1) {
-        // Login successful
-        // Store authentication status in localStorage
-        localStorage.setItem("authToken",response.data.token); // salvez tokenul in authToken
-        localStorage.setItem("isAuthenticated", "true"); //salvez true in isAuthenticated
-        //config axios to include token in future req
-        //seteaza automat pentru cererile viitoare efectuate cu axios
-        axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`; 
-        // Redirect to dashboard or home page
-        navigate("/");
+      // if (response.data.status === 1) {
+      //   // Login successful
+      //   // Store authentication status in localStorage
+      //   localStorage.setItem("authToken",response.data.token); // salvez tokenul in authToken
+      //   localStorage.setItem("isAuthenticated", "true"); //salvez true in isAuthenticated
+      //   //config axios to include token in future req
+      //   //seteaza automat pentru cererile viitoare efectuate cu axios
+      //   // axios.defaults.withCredentials = true
+      //   axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`; 
+      //   // Redirect to dashboard or home page
+      //   navigate("/");
+      console.log("Răspuns login:", response.data);
+
+if (response.data.status === 1) {
+    // Login successful
+    console.log("Token primit:", response.data.token);
+    localStorage.setItem("authToken", response.data.token);
+    localStorage.setItem("isAuthenticated", "true");
+    
+    // Log the stored token to verify
+    console.log("Token stocat:", localStorage.getItem("authToken"));
+    
+    //config axios to include token in future req
+    const authHeader = `Bearer ${response.data.token}`;
+    console.log("Header setat pentru viitoare cereri:", authHeader);
+    axios.defaults.headers.common['Authorization'] = authHeader;
+    
+    // Redirect to dashboard or home page
+    navigate("/");
+
       } else {
         // Handle API error with status 2
         setError(response.data.error || "Login failed. Please try again.");
