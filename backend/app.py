@@ -92,7 +92,23 @@ def scrape():
         return jsonify({"error": "URL is required", "status": 2}), 400
     if not scraping_method:
         return jsonify({"error": "Scraping method is required", "status": 2}), 400
-
+###MODIFICARI MARIAN
+   # Extrage utilizatorul din token, la fel ca în endpoint-ul /history
+    auth_header = request.headers.get("Authorization")
+    if auth_header:
+        token = auth_header.split(" ")[1]
+    else:
+        # Handle missing Authorization header
+        return jsonify({"error": "Authorization header is required"}), 401
+    token = request.headers.get("Authorization").split(" ")[1]
+    payload = jwt.decode(token, app.config["SECRET_KEY"], algorithms=["HS256"])
+    email = payload['user']
+    
+    # Găsește utilizatorul după email
+    user = User.query.filter_by(email=email).first()
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    
     if scraping_method == "requests":
         # call the scrape website func for the scraped result
         scrape_result = scrape_with_requests(url)
@@ -103,8 +119,13 @@ def scrape():
         return jsonify({"error": "Invalid scraping method", "status": 2}), 400
 
     save_scraped_data(scrape_result)
-    if current_user.is_authenticated:
-        store_user_history(url, scraping_method, scrape_result, current_user.id)
+    # if current_user.is_authenticated:
+    #     print(f"Storing history for user {current_user.id}")
+    #     store_user_history(url, scraping_method, scrape_result, current_user.id)
+    # else:
+    #      print("User not authenticated, skipping history")
+    print(f"Storing history for user {user.id}")
+    store_user_history(url, scraping_method, scrape_result, user.id)
     return (
         jsonify(
             {
@@ -150,6 +171,8 @@ def login():
     """
     email = request.json.get("email")
     password = request.json.get("password")
+    print(f"Email received: {email}")
+    print(f"password received: {password}")
 
     user = User.query.filter_by(email=email).first()
     if user:
@@ -158,7 +181,7 @@ def login():
             token = jwt.encode(
                 {
                     'user': email,  # Store email in token
-                    'exp': datetime.utcnow() + timedelta(seconds=120)
+                    'exp': datetime.utcnow() + timedelta(hours=1)
                 },
                 app.config['SECRET_KEY'],
                 algorithm="HS256"
@@ -241,25 +264,23 @@ def sign_up():
 
 
 @app.route("/history", methods=["GET"])
-@login_required
 @token_required
 def history():
     """
     Fetches and returns the history of scraped data for the currently logged-in user.
-    This endpoint is protected by the @login_required decorator, ensuring that only authenticated
-    users can access it.
-    Returns:
-        Response: A JSON response containing a list of dictionaries, each representing a history
-        record with the following keys:
-            - url (str): The URL that was scraped.
-            - scraped_data (str): The content that was scraped from the URL.
-            - date (str): The date and time when the data was scraped,
-            formatted as "%Y-%m-%d %H:%M:%S".
-        HTTP Status Code:
-            200: If the history is successfully retrieved.
     """
+    # Extrage token-ul și decodează-l pentru a obține email-ul utilizatorului
+    token = request.headers.get("Authorization").split(" ")[1]
+    payload = jwt.decode(token, app.config["SECRET_KEY"], algorithms=["HS256"])
+    email = payload['user']
+    
+    # Găsește utilizatorul după email
+    user = User.query.filter_by(email=email).first()
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    
     user_history = (
-        History.query.filter_by(user_id=current_user.id)
+        History.query.filter_by(user_id=user.id)
         .order_by(History.date.desc())
         .all()
     )
@@ -267,7 +288,7 @@ def history():
     history_list = [
         {
             "url": record.url,
-            "scraped_data": record.content,
+            "scraped_data": record.scraped_data,
             "date": record.date.strftime("%Y-%m-%d %H:%M:%S") if record.date else None,
         }
         for record in user_history
