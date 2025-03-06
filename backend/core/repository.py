@@ -5,6 +5,7 @@ Functions:
     Stores the scraping history of a user in the database.
 """
 
+import json
 from core.models import History
 from config import db
 from flask_login import login_required
@@ -24,6 +25,11 @@ def store_user_history(url, scrape_method, scrape_result, current_user_id):
     Returns:
         None
     """
+
+    if isinstance(scrape_result, tuple):
+        scrape_result = json.dumps({"response": scrape_result[0].get_data(as_text=True),
+                                    "status_code": scrape_result[1]})
+
     new_history = History(
         url=url,
         scrape_method=scrape_method,
