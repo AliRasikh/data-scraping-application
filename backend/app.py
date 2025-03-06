@@ -230,7 +230,7 @@ def sign_up():
         code if any validation fails.
     """
     email = request.json.get("email")
-    username = request.json.get("firstName")
+    username = request.json.get("userName")
     password = request.json.get("password")
     repeat_password = request.json.get("repeat_password")
 
@@ -259,31 +259,10 @@ def sign_up():
         )
         db.session.add(new_user)
         db.session.commit()
-        # login_user(new_user, remember=True)
         return jsonify({"message": "Account created successfully!", "status": 1})
 
 
-# @app.route("/history", methods=["GET"])
-# # @login_required
-# # @token_required
-# def history():
-#     return jsonify("history endpoint accessed.")
-
-
-# @app.route("/history", methods=["GET"])
-# # @login_required
-# # @token_required
-# def history():
-#     user_id = current_user.id
-#     print("User id:")
-#     print(user_id)
-
-#     return jsonify(f"history endpoint accessed. current_user id: {user_id}")
-
-
 @app.route("/history", methods=["GET"])
-# @login_required
-@token_required
 def history():
     """
     Fetches and returns the history of scraped data for the currently logged-in user.
