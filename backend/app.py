@@ -230,7 +230,7 @@ def sign_up():
         code if any validation fails.
     """
     email = request.json.get("email")
-    first_name = request.json.get("firstName")
+    username = request.json.get("firstName")
     password = request.json.get("password")
     repeat_password = request.json.get("repeat_password")
 
@@ -241,7 +241,7 @@ def sign_up():
         return jsonify(
             {"error": "Email must be greater than 3 characters.", "status": 2}
         )
-    elif len(first_name) < 2:
+    elif len(username) < 2:
         return jsonify(
             {"error": "First name must be greater than 1 character.", "status": 2}
         )
@@ -254,7 +254,7 @@ def sign_up():
     else:
         new_user = User(
             email=email,
-            first_name=first_name,
+            username=username,
             password=generate_password_hash(password, method="pbkdf2:sha256"),
         )
         db.session.add(new_user)
