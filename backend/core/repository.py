@@ -7,7 +7,6 @@ Functions:
 
 from core.models import History
 from config import db
-from flask_login import login_required
 
 
 def store_user_history(url, scrape_method, scrape_result, current_user_id):
