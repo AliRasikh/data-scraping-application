@@ -374,7 +374,7 @@ Authorization|	String|	✅ Yes|	Bearer token for authentication|
 
 ## 2. scraper.py 
 
-## scrape_with_Requests() (POST):
+## scrape_with_Requests:
 
 #### **Description:** 
 Scrapes a static website and returns extracted text.
@@ -402,7 +402,7 @@ Send a **POST request** with a JSON body:
 
 If an error occurs, returns a JSON object with an error message.
 
-## scrape_with_bs4 (POST):
+## scrape_with_bs4:
 
 #### **Description:** 
 Uses BeautifulSoup to parse and prettify the HTML content. It can also clean the HTML to return readable text
@@ -432,7 +432,7 @@ Send a **POST request** with a JSON body:
 - Readable formatted text if clean=True
 - Returns an error message if scraping fails.
 
-## scrape_with_bs4 (POST):
+## scrape_with_selenium :
 #### **Description:** 
 Uses Selenium WebDriver to scrape dynamic web pages that rely on JavaScript execution. It can also clean the HTML to return readable text
 
