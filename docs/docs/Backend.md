@@ -21,10 +21,6 @@ The **backend** of the Web Scraping Project is responsible for:
 
 
 ## Installation:
-To run the backend locally:
-```bash
-python app.py
-```
 This guide will walk you through setting up and running the backend of the project.
 
 ## 1️⃣ Create a Virtual Environment (Recommended)
