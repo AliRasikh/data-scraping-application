@@ -28,6 +28,7 @@ from core.scraper import scrape_with_bs4, scrape_with_requests, scrape_with_sele
 
 
 def token_required(func):
+
     """
     Decorator function to ensure that a valid JWT token is provided in the request headers.
     Args:
@@ -64,6 +65,13 @@ def token_required(func):
         return func(*args, **kwargs)
 
     return decorated
+
+
+# route to test jwt auth
+@app.route("/auth")
+@token_required
+def auth():
+    return "JWT is verified!"
 
 
 # API Routes
@@ -279,6 +287,7 @@ def history():
     history_list = [
         {
             "url": record.url,
+            "scrape_method": record.scrape_method,
             "scraped_data": record.scraped_data,
             "date": record.date.strftime("%Y-%m-%d %H:%M:%S") if record.date else None,
         }
