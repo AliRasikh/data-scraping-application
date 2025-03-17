@@ -26,14 +26,13 @@ The **Data Scraping Application** is a collaborative project developed by studen
 ## Installation ⚡
 
 To get started with the Data Scraping Application, clone the repository and install the required dependencies.
-To run Frontend and Backend locally please refer to our developer documentation
-<mkdocs link>
 
 ```bash
 git clone https://github.com/your-username/data-scraping-application.git
 cd data-scraping-application
 
 ```
+To run Frontend and Backend locally please refer to our developer documentation at: https://alirasikh.github.io/data-scraping-application/
 
 <br>
 <div align="center">
