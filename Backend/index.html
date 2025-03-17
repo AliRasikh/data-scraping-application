@@ -1,0 +1,1949 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../Contact/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>🖥️ Backend Documentation - Web Sraping Project Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#backend-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Web Sraping Project Documentation" class="md-header__button md-logo" aria-label="Web Sraping Project Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Web Sraping Project Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🖥️ Backend Documentation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Data Scraping Application 🕸️
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  🖥️ Backend Documentation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Contact/" class="md-tabs__link">
+        
+  
+    
+  
+  📞 Contact Us
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Frontend/" class="md-tabs__link">
+        
+  
+    
+  
+  Frontend Developer Documentation
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Web Sraping Project Documentation" class="md-nav__button md-logo" aria-label="Web Sraping Project Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Web Sraping Project Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Scraping Application 🕸️
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    🖥️ Backend Documentation
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    🖥️ Backend Documentation
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Features:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-a-virtual-environment-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ Create a Virtual Environment (Recommended)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-install-the-required-python-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ Install the Required Python Version
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ Install Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-code-quality-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ Code Quality &amp; Standards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-navigate-to-the-backend-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ Navigate to the Backend Directory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-run-the-backend-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      6️⃣ Run the Backend Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-apppy-api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. app.py (API Endpoints):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scrape-a-website-scrape" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Scrape a Website (/scrape)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Scrape a Website (/scrape)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      📩 Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processing-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Processing Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Success Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-authentication-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 Verify Authentication (/auth)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 Verify Authentication (/auth)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Request Headers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Responses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Login (/login)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Login (/login)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-body-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Request Body (JSON)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Example Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Responses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwt-token-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 JWT Token Authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-up-sign-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      🆕 Sign Up (/sign-up)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🆕 Sign Up (/sign-up)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-body-json_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Request Body (JSON)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-request_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Example Request
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Example Request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#responses_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Responses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#password-hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 Password Hashing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-scraping-history-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      📜 View Scraping History (/history)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📜 View Scraping History (/history)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Responses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-scraperpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. scraper.py
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scrape_with_requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      scrape_with_Requests:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scrape_with_Requests:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response Format:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scrape_with_bs4" class="md-nav__link">
+    <span class="md-ellipsis">
+      scrape_with_bs4:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scrape_with_bs4:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-format_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-format_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response Format:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scrape_with_selenium" class="md-nav__link">
+    <span class="md-ellipsis">
+      scrape_with_selenium :
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scrape_with_selenium :">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-scraper-function-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 How the Scraper Function Works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 How the Scraper Function Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-scraping-with-requests-scrape_with_requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ Scraping with Requests (scrape_with_requests)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-scraping-with-beautifulsoup-scrape_with_bs4" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ Scraping with BeautifulSoup (scrape_with_bs4)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-scraping-with-selenium-scrape_with_selenium" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ Scraping with Selenium (scrape_with_selenium)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Error Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-of-scraping-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Comparison of Scraping Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. config.py :
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. config.py :">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flask-app-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Flask App Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 Environment Variables (.env)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Environment Variables (.env)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗄️ Database Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    📞 Contact Us
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Frontend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Frontend Developer Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="backend-documentation">🖥️ Backend Documentation</h1>
+<h2 id="overview">🚀 Overview</h2>
+<p>The <strong>backend</strong> of the Web Scraping Project is responsible for:</p>
+<ul>
+<li>
+<p><strong>Managing web scraping tasks</strong> using Requests, BeautifulSoup or Selenium.</p>
+</li>
+<li>
+<p><strong>Processing and cleaning scraped data</strong> .</p>
+</li>
+<li>
+<p><strong>Providing an API</strong> to serve the scraped data to the frontend .</p>
+</li>
+<li>
+<p><strong>Handling database operations</strong> for storing and retrieving scraped data.</p>
+</li>
+</ul>
+<h2 id="features">📌 Features:</h2>
+<ul>
+<li>✅ Scrapes static websites using Requests and BeautifulSoup</li>
+<li>✅ Scrapes dynamic websites using Selenium</li>
+<li>✅ Clean scraped data</li>
+<li>✅ Preview or save the scraped data as a <code>.txt</code> file</li>
+<li>✅ Reliable and secure REST API with JWT Token</li>
+</ul>
+<h2 id="installation">Installation:</h2>
+<p>This guide will walk you through setting up and running the backend of the project.</p>
+<h2 id="1-create-a-virtual-environment-recommended">1️⃣ Create a Virtual Environment (Recommended)</h2>
+<p>Using a virtual environment ensures dependencies are managed properly and avoid conflicts.</p>
+<p>Run the following command to create one:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv<span class="w"> </span><span class="c1">#python3 for Mac/Linux</span>
+</code></pre></div>
+<p>Then activate it:</p>
+<p>Windows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</code></pre></div>
+<p>Mac/Linux:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</code></pre></div>
+<h2 id="2-install-the-required-python-version">2️⃣ Install the Required Python Version</h2>
+<p>Ensure you have the correct Python version installed.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python<span class="w"> </span>--version
+</code></pre></div>
+<h2 id="3-install-dependencies">3️⃣ Install Dependencies</h2>
+<p>After activating the virtual environment, install all required dependencies:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<h2 id="4-code-quality-standards">4️⃣ Code Quality &amp; Standards</h2>
+<p>To maintain code quality and consistency, install and configure the following tools:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mypy<span class="w"> </span>flake8<span class="w"> </span>black<span class="w"> </span>pylint
+</code></pre></div>
+<h2 id="5-navigate-to-the-backend-directory">5️⃣ Navigate to the Backend Directory</h2>
+<p>Move into the backend project folder:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>backend
+</code></pre></div>
+<h2 id="6-run-the-backend-server">6️⃣ Run the Backend Server</h2>
+<p>Start the Flask application:</p>
+<p>Windows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>app.py
+</code></pre></div>
+<p>Mac/Linux:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python3<span class="w"> </span>app.py
+</code></pre></div>
+<h2 id="code">Code</h2>
+<h2 id="1-apppy-api-endpoints">1. app.py (API Endpoints):</h2>
+<h2 id="scrape-a-website-scrape">🔍 Scrape a Website (<code>/scrape</code>)</h2>
+<h4 id="overview_1">📍 Overview</h4>
+<p>This route <strong>scrapes a static website</strong> using <strong>BeautifulSoup</strong> or <strong>Requests</strong> and returns the extracted HTML.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>@app.route(&quot;/scrape&quot;, methods=[&quot;POST&quot;])
+</code></pre></div>
+<p>Defines a route for a specific URL and specifies which HTTP method is allowed</p>
+<p>this Function calls the scrapes_with_bs4 or scrapes_with_requests function that scrapes static websites and return the data as HTML</p>
+<h4 id="request-parameters">📩 Request Parameters</h4>
+<p>JSON Body (Required Fields)</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>url</code></td>
+<td><code>string</code></td>
+<td>✅ Yes</td>
+<td>The URL of the website to scrape.</td>
+</tr>
+<tr>
+<td><code>scraping_method</code></td>
+<td><code>string</code></td>
+<td>✅ Yes</td>
+<td>The scraping method: <code>"requests"</code>, <code>"bs4"</code>, or <code>"selenium"</code>.</td>
+</tr>
+<tr>
+<td><code>clean_data</code></td>
+<td><code>boolean</code></td>
+<td>❌ No (default: <code>false</code>)</td>
+<td>Whether to clean the scraped data.</td>
+</tr>
+<tr>
+<td><code>company_name</code></td>
+<td><code>string</code></td>
+<td>✅ Yes (for <code>"selenium"</code>)</td>
+<td>The name of the company (used for Selenium-based scraping).</td>
+</tr>
+</tbody>
+</table>
+<p>Headers (Optional)</p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Authorization</code></td>
+<td><code>string</code></td>
+<td>❌ No</td>
+<td>JWT token (Required for storing scraping history).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="processing-steps">🔄 Processing Steps</h4>
+<ol>
+<li><strong>Retrieve JSON Data</strong>: Extracts the URL, scraping method, and optional parameters from the request.</li>
+<li><strong>Validation</strong>:</li>
+<li>Ensures the <code>url</code> is provided and starts with <code>https://</code>. If it starts with <code>www.</code>, we will add <code>https://</code></li>
+<li>Requires <code>scraping_method</code> to be one of <code>"requests"</code>, <code>"bs4"</code>, or <code>"selenium"</code>.</li>
+<li>If using <code>selenium</code>, <code>company_name</code> is <strong>required</strong>.</li>
+<li><strong>Call the Appropriate Scraping Function</strong>:</li>
+<li><strong><code>requests</code></strong> → <code>scrape_with_requests(url)</code></li>
+<li><strong><code>bs4</code></strong> → <code>scrape_with_bs4(url, clean=clean_data)</code></li>
+<li><strong><code>selenium</code></strong> → <code>scrape_with_selenium(url, company_name, clean=clean_data)</code></li>
+<li><strong>Store Scraping History</strong> (if JWT token is provided).</li>
+<li><strong>Return JSON Response</strong> with the scraped data.</li>
+</ol>
+<p>📌<strong>Response:</strong></p>
+<hr />
+<h4 id="success-response">✅ Success Response</h4>
+<p><strong>HTTP Status Code</strong>: <code>201 Created</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;URL Scraped with selenium and content saved&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">&quot;scrape_result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;scraped HTML data&gt;&quot;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Error Responses</strong></p>
+<p>The <code>/scrape</code> endpoint may return the following error responses:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP Status Code</th>
+<th>Error Message</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td><code>"error": "URL is required"</code></td>
+<td>The <code>url</code> field is missing in the request body.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>"error": "Scraping method is required"</code></td>
+<td>The <code>scraping_method</code> field is missing in the request body.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>"error": "Company name is required for Selenium"</code></td>
+<td>The <code>company_name</code> field is required when using <code>"selenium"</code> as the <code>scraping_method</code>.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>"error": "Invalid scraping method"</code></td>
+<td>The provided <code>scraping_method</code> is not recognized (must be <code>"requests"</code>, <code>"bs4"</code>, or <code>"selenium"</code>).</td>
+</tr>
+<tr>
+<td>401</td>
+<td><code>"error": "Invalid or missing token"</code></td>
+<td>The request is missing an authorization token or contains an invalid one.</td>
+</tr>
+<tr>
+<td>500</td>
+<td><code>"error": "Internal Server Error"</code></td>
+<td>An unexpected server error occurred.</td>
+</tr>
+</tbody>
+</table>
+<p>👉 <strong>Note</strong>: Ensure all required fields are provided in the JSON request body to avoid errors.</p>
+<p><strong>Why jsonify file ?</strong></p>
+<p>It's better to return JSON to the frontend because JSON is lightweight, structured, and universally supported by typeScript</p>
+<h2 id="verify-authentication-auth">🔒 Verify Authentication (<code>/auth</code>)</h2>
+<p><strong>Method:</strong> <code>GET</code><br />
+<strong>Description:</strong> Checks if the provided JWT token is valid.</p>
+<h4 id="request-headers">🔹 Request Headers</h4>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authorization</td>
+<td>String</td>
+<td>✅ Yes</td>
+<td>Bearer Token required for authentication.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">🔹 Responses</h4>
+<p>✅ Success (<code>200 OK</code>)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Token is valid&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="login-login">🔑 Login (<code>/login</code>)</h2>
+<p><strong>Method:</strong> <code>POST</code><br />
+<strong>Description:</strong> Authenticates a user and returns a JWT token.</p>
+<h4 id="request-body-json">🔹 Request Body (JSON)</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>String</td>
+<td>✅ Yes</td>
+<td>User email.</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>String</td>
+<td>✅ Yes</td>
+<td>User password.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="example-request">🔹 Example Request</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user@example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password123&quot;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="responses_1">🔹 Responses</h4>
+<p>✅ Success (<code>200 OK</code>)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Logged in successfully!&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_jwt_token&quot;</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>❌ Errors</p>
+<table>
+<thead>
+<tr>
+<th>HTTP Code</th>
+<th>Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>"error": "Email does not exist"</td>
+</tr>
+<tr>
+<td>400</td>
+<td>"error": "Incorrect password, try again"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="jwt-token-authentication">🔑 JWT Token Authentication</h2>
+<p>In this API, JSON Web Tokens (JWT) are used for user authentication and authorization. JWTs allow secure communication between the client and the server without storing session data.</p>
+<p><strong>How JWT Works</strong></p>
+<ol>
+<li>
+<p>User Logs In</p>
+<div class="highlight"><pre><span></span><code>- The user submits their email and password.
+
+- If credentials are valid, a JWT is generated:
+
+```bash
+token = jwt.encode(
+   {
+      &quot;user&quot;: email,  # Store user email in the token
+      &quot;user_id&quot;: user.id,  # Store user ID in the token
+      &quot;exp&quot;: datetime.utcnow() + timedelta(seconds=1000)  # Expiration time
+   },
+   app.config[&quot;SECRET_KEY&quot;],  # Secret key for encoding
+   algorithm=&quot;HS256&quot;
+)
+```
+</code></pre></div>
+<p>The token is then sent to the client in the response.</p>
+</li>
+<li>
+<p>Client Sends Token in Requests</p>
+<ul>
+<li>The client includes the token in the Authorization header:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Authorization:<span class="w"> </span>Bearer<span class="w"> </span>&lt;token&gt;
+</code></pre></div>
+<ul>
+<li>The server verifies the token before allowing access.</li>
+</ul>
+</li>
+<li>
+<p>Server Validates the Token</p>
+<ul>
+<li>When a request is received, the token is decoded and verified:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nv">decoded_token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>jwt.decode<span class="o">(</span>token,<span class="w"> </span>app.config<span class="o">[</span><span class="s2">&quot;SECRET_KEY&quot;</span><span class="o">]</span>,<span class="w"> </span><span class="nv">algorithms</span><span class="o">=[</span><span class="s2">&quot;HS256&quot;</span><span class="o">])</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nv">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>decoded_token<span class="o">[</span><span class="s2">&quot;user_id&quot;</span><span class="o">]</span><span class="w">  </span><span class="c1"># Extract user ID</span>
+</code></pre></div>
+<ul>
+<li>If the token is valid, the request is processed.</li>
+<li>If the token is expired or invalid, an error is returned.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Token Expiration &amp; Security</strong></p>
+<p>Expiration (exp) ensures that tokens are only valid for a limited time (e.g., 1000 seconds).</p>
+<p>Secret Key (SECRET_KEY) is used for signing and verifying the token to prevent tampering.</p>
+<p>Bearer Authentication method is used to send the token securely.</p>
+<h2 id="sign-up-sign-up">🆕 Sign Up (/sign-up)</h2>
+<p><strong>Method</strong>: POST
+<strong>Description</strong>: Registers a new user.</p>
+<h3 id="request-body-json_1">🔹 Request Body (JSON)</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>String</td>
+<td>✅ Yes</td>
+<td>User email.</td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td>String</td>
+<td>✅ Yes</td>
+<td>User name.</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>String</td>
+<td>✅ Yes</td>
+<td>User password.</td>
+</tr>
+<tr>
+<td><code>repeat_password</code></td>
+<td>String</td>
+<td>✅ Yes</td>
+<td>Must match the password.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-request_1">🔹 Example Request</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;newuser@example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">&quot;userName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;newuser&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password123&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="nt">&quot;repeat_password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password123&quot;</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="responses_2">🔹 Responses</h4>
+<p>✅ Success Response (201 Created)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Account created successfully!&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>❌ Errors</p>
+<table>
+<thead>
+<tr>
+<th>HTTP Code</th>
+<th>Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>"error": "Email already exists"</td>
+</tr>
+<tr>
+<td>400</td>
+<td>"error": "Passwords don't match"</td>
+</tr>
+<tr>
+<td>400</td>
+<td>"error": "Password must be at least 7 characters"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="password-hashing">🔐 Password Hashing</h2>
+<p>In this API, user passwords are securely stored using PBKDF2 (Password-Based Key Derivation Function 2) with SHA-256 hashing. This ensures that passwords are not stored in plain text, enhancing security.</p>
+<p>How It Works:</p>
+<ul>
+<li>When a user signs up, the password is hashed using:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nv">hashed_password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>generate_password_hash<span class="o">(</span>password,<span class="w"> </span><span class="nv">method</span><span class="o">=</span><span class="s2">&quot;pbkdf2:sha256&quot;</span><span class="o">)</span>
+</code></pre></div>
+<ul>
+<li>
+<p>The hashed password is stored in the database instead of the plain password.</p>
+</li>
+<li>
+<p>During login, the entered password is hashed again and compared with the stored hash:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>check_password_hash<span class="o">(</span>stored_hashed_password,<span class="w"> </span>entered_password<span class="o">)</span>
+</code></pre></div>
+<ul>
+<li>If the hashes match, authentication is successful.</li>
+</ul>
+<h2 id="view-scraping-history-history">📜 View Scraping History (<code>/history</code>)</h2>
+<p><strong>Method:</strong> <code>GET</code><br />
+<strong>Description:</strong> Retrieves the scraping history of the logged-in user.
+<strong>Authentication:</strong> ✅ Requires a valid JWT token in the Authorization header.</p>
+<h4 id="request">🔹 Request</h4>
+<p>Headers:</p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authorization</td>
+<td>String</td>
+<td>✅ Yes</td>
+<td>Bearer token for authentication</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses_3">🔹 Responses</h4>
+<p>✅ Success (<code>200 OK</code>)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">[</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="nt">&quot;scraped_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;html&gt;...&lt;/html&gt;&quot;</span><span class="p">,</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-03-10 15:30:00&quot;</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">]</span>
+</code></pre></div>
+<h2 id="2-scraperpy">2. scraper.py</h2>
+<h2 id="scrape_with_requests">scrape_with_Requests:</h2>
+<h4 id="description"><strong>Description:</strong></h4>
+<p>Scrapes a static website and returns extracted text.</p>
+<h4 id="parameters"><strong>Parameters</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>str</td>
+<td>✅</td>
+<td>The URL to scrape</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-format"><strong>Request Format</strong></h4>
+<p>Send a <strong>POST request</strong> with a JSON body:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">{</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="response-format">Response Format:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>{
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    &quot;html&quot;: &quot;&lt;html&gt;...&lt;/html&gt;&quot;
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>}
+</code></pre></div>
+<h4 id="returns"><strong>Returns</strong></h4>
+<ul>
+<li>HTML</li>
+</ul>
+<p>If an error occurs, returns a JSON object with an error message.</p>
+<h2 id="scrape_with_bs4">scrape_with_bs4:</h2>
+<h4 id="description_1"><strong>Description:</strong></h4>
+<p>Uses BeautifulSoup to parse and prettify the HTML content. It can also clean the HTML to return readable text</p>
+<h4 id="parameters_1"><strong>Parameters</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>str</td>
+<td>✅</td>
+<td>The URL to scrape</td>
+</tr>
+<tr>
+<td>clean</td>
+<td>bool</td>
+<td>❌</td>
+<td>If True, extracts only readable text</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-format_1"><strong>Request Format</strong></h4>
+<p>Send a <strong>POST request</strong> with a JSON body:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">{</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="response-format_1">Response Format:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>{
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    &quot;html&quot;: &quot;&lt;html&gt;...&lt;/html&gt;&quot;
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>}
+</code></pre></div>
+<h4 id="returns_1"><strong>Returns</strong></h4>
+<ul>
+<li>Prettified HTML if clean=False</li>
+<li>Readable formatted text if clean=True</li>
+<li>Returns an error message if scraping fails.</li>
+</ul>
+<h2 id="scrape_with_selenium">scrape_with_selenium :</h2>
+<h4 id="description_2"><strong>Description:</strong></h4>
+<p>Uses Selenium WebDriver to scrape dynamic web pages that rely on JavaScript execution. It can also clean the HTML to return readable text</p>
+<h4 id="parameters_2"><strong>Parameters</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>str</td>
+<td>✅</td>
+<td>The URL of the page to scrape</td>
+</tr>
+<tr>
+<td>company_name</td>
+<td>str</td>
+<td>✅</td>
+<td>The company name to search for</td>
+</tr>
+<tr>
+<td>clean</td>
+<td>bool</td>
+<td>❌</td>
+<td>If True, extracts only readable text</td>
+</tr>
+</tbody>
+</table>
+<h4 id="environment-variables"><strong>Environment Variables</strong></h4>
+<p>CHROME_PATH: Path to the Chrome WebDriver executable.</p>
+<h4 id="returns_2"><strong>Returns</strong></h4>
+<ul>
+<li>Scraped page title</li>
+<li>Prettified HTML or clean text, based on clean flag.</li>
+</ul>
+<h2 id="how-the-scraper-function-works">📌 How the Scraper Function Works</h2>
+<h4 id="1-scraping-with-requests-scrape_with_requests">1️⃣ Scraping with Requests (<code>scrape_with_requests</code>)</h4>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1️⃣ Send HTTP Request</strong></td>
+<td>The function <strong>sends a request</strong> to the URL using <code>requests.get(url)</code>.</td>
+</tr>
+<tr>
+<td><strong>2️⃣ Check Response Status</strong></td>
+<td>If the response <strong>is not <code>200 OK</code></strong>, an error is returned.</td>
+</tr>
+<tr>
+<td><strong>3️⃣ Extract Raw HTML</strong></td>
+<td>The function <strong>retrieves and returns</strong> the raw HTML using <code>response.text</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-scraping-with-beautifulsoup-scrape_with_bs4">2️⃣ Scraping with BeautifulSoup (<code>scrape_with_bs4</code>)</h4>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1️⃣ Send HTTP Request</strong></td>
+<td>Requests the webpage's <strong>HTML content</strong> using <code>requests.get(url)</code>.</td>
+</tr>
+<tr>
+<td><strong>2️⃣ Check Response Status</strong></td>
+<td>If response <strong>isn’t <code>200 OK</code></strong>, an error is returned.</td>
+</tr>
+<tr>
+<td><strong>3️⃣ Parse HTML</strong></td>
+<td>The function <strong>parses the HTML</strong> with <code>BeautifulSoup()</code>.</td>
+</tr>
+<tr>
+<td><strong>4️⃣ Clean &amp; Prettify Output</strong></td>
+<td>Returns <strong>cleaned text</strong> or formatted HTML using <code>soup.prettify()</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-scraping-with-selenium-scrape_with_selenium">3️⃣ Scraping with Selenium (<code>scrape_with_selenium</code>)</h4>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1️⃣ Setup Selenium WebDriver</strong></td>
+<td>Configures <strong>Chrome WebDriver</strong> for headless browsing.</td>
+</tr>
+<tr>
+<td><strong>2️⃣ Load Webpage</strong></td>
+<td>Opens the webpage using <code>driver.get(url)</code>.</td>
+</tr>
+<tr>
+<td><strong>3️⃣ Handle JavaScript &amp; Dynamic Content</strong></td>
+<td>Waits for JavaScript-rendered elements to load.</td>
+</tr>
+<tr>
+<td><strong>4️⃣ Extract Page Source</strong></td>
+<td>Retrieves <strong>HTML content</strong> using <code>driver.page_source</code>.</td>
+</tr>
+<tr>
+<td><strong>5️⃣ Clean &amp; Return Data</strong></td>
+<td>Parses the HTML with <code>BeautifulSoup</code> or returns <strong>raw HTML</strong>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="error-handling">📌 Error Handling</h2>
+<p>The scraper function <strong>handles errors</strong> and returns structured JSON responses.</p>
+<table>
+<thead>
+<tr>
+<th>Error Type</th>
+<th>Status Code</th>
+<th>Example Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Missing URL</strong></td>
+<td><code>400 Bad Request</code></td>
+<td><code>json {"error": "URL is required"}</code></td>
+</tr>
+<tr>
+<td><strong>Invalid URL</strong></td>
+<td><code>400 Bad Request</code></td>
+<td><code>json {"error": "Failed to retrieve content"}</code></td>
+</tr>
+<tr>
+<td><strong>Request Timeout</strong></td>
+<td><code>500 Server Error</code></td>
+<td><code>json {"error": "An error occurred: timeout"}</code></td>
+</tr>
+<tr>
+<td><strong>Parsing Error</strong></td>
+<td><code>500 Server Error</code></td>
+<td><code>json {"error": "Failed to parse HTML"}</code></td>
+</tr>
+<tr>
+<td><strong>Selenium WebDriver Error</strong></td>
+<td><code>500 Server Error</code></td>
+<td><code>json {"error": "Selenium WebDriver error"}</code></td>
+</tr>
+</tbody>
+</table>
+<p>✅ <strong>If an error occurs, the function returns a structured JSON error message instead of crashing.</strong></p>
+<h2 id="comparison-of-scraping-methods">📌 Comparison of Scraping Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Best For</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Requests</strong></td>
+<td>Static websites</td>
+<td>✅ Fast, ✅ Lightweight</td>
+<td>❌ No JavaScript support</td>
+</tr>
+<tr>
+<td><strong>BeautifulSoup</strong></td>
+<td>Cleaning &amp; parsing HTML</td>
+<td>✅ Easy to use, ✅ Lightweight</td>
+<td>❌ Needs requests first</td>
+</tr>
+<tr>
+<td><strong>Selenium</strong></td>
+<td>JavaScript-heavy pages</td>
+<td>✅ Handles dynamic content</td>
+<td>❌ Slower, ❌ Requires WebDriver</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-configpy">3. config.py :</h2>
+<h4 id="overview_2">📌 Overview</h4>
+<p>This module <strong>configures</strong> the Flask application by:</p>
+<ul>
+<li>
+<p><strong>Loading environment variables</strong> from a <code>.env</code> file.</p>
+</li>
+<li>
+<p><strong>Setting up the database connection</strong> using SQLAlchemy.</p>
+</li>
+<li>
+<p><strong>Enabling CORS</strong> to allow cross-origin requests.</p>
+</li>
+<li>
+<p><strong>Managing security settings</strong> with a secret key.</p>
+</li>
+</ul>
+<h4 id="flask-app-initialization">🚀 Flask App Initialization</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nv">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Flask<span class="o">(</span>__name__<span class="o">)</span><span class="w">  </span><span class="c1"># Create an app instance</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>CORS<span class="o">(</span>app<span class="o">)</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>CORS<span class="o">(</span>app,<span class="w"> </span><span class="nv">supports_credentials</span><span class="o">=</span>True<span class="o">)</span>
+</code></pre></div>
+<ul>
+<li>CORS (Cross-Origin Resource Sharing) is enabled to allow requests from different domains.</li>
+<li>supports_credentials=True allows cookies and authentication headers in requests.</li>
+</ul>
+<h4 id="environment-variables-env">🔐 Environment Variables (.env)</h4>
+<ul>
+<li>This module loads sensitive configurations from a .env file using dotenv.</li>
+<li>The .env file is not included in version control (Git) to protect sensitive information.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>load_dotenv<span class="o">()</span><span class="w">  </span><span class="c1"># Load environment variables from .env</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>app.config<span class="o">[</span><span class="s2">&quot;SECRET_KEY&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>os.getenv<span class="o">(</span><span class="s2">&quot;SECRET_KEY&quot;</span><span class="o">)</span>
+</code></pre></div>
+<ul>
+<li>SECRET_KEY → Used for secure sessions and JWT authentication.</li>
+</ul>
+<h5 id="database-configuration">🗄️ Database Configuration</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nv">database_uri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>os.getenv<span class="o">(</span><span class="s2">&quot;DATABASE_URI&quot;</span><span class="o">)</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>app.config<span class="o">[</span><span class="s2">&quot;SQLALCHEMY_DATABASE_URI&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>database_uri
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>app.config<span class="o">[</span><span class="s2">&quot;SQLALCHEMY_TRACK_MODIFICATIONS&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>False
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="nv">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>SQLAlchemy<span class="o">(</span>app<span class="o">)</span><span class="w">  </span><span class="c1"># Create a database instance</span>
+</code></pre></div>
+<ul>
+<li>SQLALCHEMY_DATABASE_URI → Defines the database connection.</li>
+<li>SQLALCHEMY_TRACK_MODIFICATIONS=False → Disables unnecessary tracking to improve performance.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2025 <a href="https://github.com/AliRasikh/data-scraping-application"  target="_blank" rel="noopener">Hochschule Augsburg & LNU Student Team project</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/AliRasikh/data-scraping-application" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
